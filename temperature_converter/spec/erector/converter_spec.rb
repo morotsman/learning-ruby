@@ -12,11 +12,11 @@ describe Converter do
     expect(Converter.new(5).convert_to_celsius(0)).to eq -17.77778
   end
   
-  it "0 F should be converted to -17.77778 C if the precision is 0 decimals" do
+  it "0 F should be converted to -18 C if the precision is 0 decimals" do
     expect(Converter.new(0).convert_to_celsius(0)).to eq -18
   end  
   
-  it "0 F should be converted to -17.77778 C if the precision is 1 decimals" do
+  it "0 F should be converted to -17.8 C if the precision is 1 decimals" do
     expect(Converter.new(1).convert_to_celsius(0)).to eq -17.8
   end  
   
