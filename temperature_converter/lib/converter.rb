@@ -1,8 +1,38 @@
 
 
-class Converter
+class Farenheit
+  attr_reader :temperature
   
+  def initialize(temperature)
+    @temperature = temperature
+  end
+  
+  def to_celsius
+    Celsius.new((@temperature-32.0)*(5.0/9.0))
+  end
+  
+  def == (other)
+    (self.class == other.class) && (self.temperature == other.temperature)
+  end  
+end
 
+class Celsius
+  attr_reader :temperature
+  def initialize(temperature)
+    @temperature = temperature
+  end
+  
+  def to_farenheit
+    Farenheit.new((@temperature*(9.0/5.0)) + 32)
+  end
+  
+  def == (other)
+    (self.class == other.class) && (self.temperature == other.temperature)
+  end
+end
+
+
+class Converter
   
   def initialize(precision)
     @number_of_decimals = precision?(precision)
@@ -17,13 +47,11 @@ class Converter
   
 
   def convert_to_celsius(f)
-    result = (f-32.0)*(5.0/9.0)
-    @number_of_decimals.call(result)
+    @number_of_decimals.call(f.to_celsius.temperature)
   end
 
   def convert_to_fahrenheit(c)
-    result = (c*(9.0/5.0)) + 32
-    @number_of_decimals.call(result)
+    @number_of_decimals.call(c.to_farenheit.temperature)
   end  
 end
 

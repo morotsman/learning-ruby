@@ -7,7 +7,7 @@ message = temperature_standard=="c"?"Please enter the temperature in Fahrenheit.
 puts message
 temperature = gets.strip.to_f
 converter = Converter.new(5)
-converted_temperature = temperature_standard=="f"?converter.convert_to_fahrenheit(temperature):converter.convert_to_celsius(temperature)
+converted_temperature = temperature_standard=="f"?converter.convert_to_fahrenheit(Celsius.new(temperature)):converter.convert_to_celsius(Farenheit.new(temperature))
 puts "The converted temperature is: #{converted_temperature}"
 
 
