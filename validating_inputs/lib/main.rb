@@ -13,3 +13,7 @@ zip_code = gets.strip
 puts "Enter an employee ID: "
 employee_id = gets.strip
 
+input_validator = InputValidator.new
+
+puts input_validator.validate_input(first_name,last_name,zip_code,employee_id)
+
